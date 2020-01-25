@@ -9,6 +9,13 @@ public:
     //Constructor
     Array();
 
+    // Automatically adds this object to the array, and determines that this is
+    // an array of object pointers 
+    Array(Object* o);
+
+    //Determines that this is an array of String pointers and not object*
+    Array(String* s);
+
     // Destructor
     virtual ~Array();
 

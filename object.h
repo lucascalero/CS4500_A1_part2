@@ -17,8 +17,10 @@ public:
     // this Object
     size_t hash();
 
+    // creates another identical object with a different hash
     virtual Object* clone();
 
+    // returns a char* (string) representation of this object.
     virtual char* to_string();
 };
 
@@ -36,5 +38,13 @@ class String: public Object {
 
         ~String() {}
 
+        virtual bool equals(Object* other);
 
+        String* concat(String* s);
+
+        virtual Object* clone();
+
+        int compare_to(Object* other);
+
+        bool contains(String* s);
 };
