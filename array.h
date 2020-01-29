@@ -23,8 +23,8 @@ public:
     virtual bool equals (Object* other);
 
     // Copies each object inside this array into a new array object in
-    // the same order, where each object will be cloned and will be identical
-    // with different hash values
+    // the same order, where each object will be cloned and will have the
+    // same hash values.
     virtual Object* clone();
 
     // Returns a char* representation of this array at that point
