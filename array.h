@@ -54,9 +54,6 @@ public:
     // Removes the object at the index and shifts all objects with > index to the left.
     // i.e. object at a[2] will now be at a[1]
     Object* remove(size_t index);
-
-    //Returns a C++ array of Object pointers
-    Object** to_array();
     
     // This method deletes all the objects in this array and leaves it empty.
     void clear();
