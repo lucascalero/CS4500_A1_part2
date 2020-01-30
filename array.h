@@ -6,56 +6,116 @@ class Array: public Object{
 
 public:
 
-    //Constructor
-    Array();
+    size_t size_;
+    size_t capacity_;
+    size_t hash_;
 
-    // Automatically adds this object to the array, and determines that this is
-    // an array of object pointers 
-    Array(Object* o);
+    //Constructor to create an Array with a specific size.
+    Array(size_t size);
 
-    //Determines that this is an array of String pointers and not object*
-    Array(String* s);
+    // Creates an array object with size=0 and default hash (0)
+    Array(); 
 
     // Destructor
     virtual ~Array();
 
-    // Checks for equality
-    virtual bool equals (Object* other);
+    // Checks for equality, will cast to an Array.
+    bool equals(Object* other);
 
     // Copies each object inside this array into a new array object in
     // the same order, where each object will be cloned and will have the
     // same hash values.
-    virtual Object* clone();
+    Object* clone();
 
-    // Returns a char* representation of this array at that point
-    virtual char* to_string();
+    // Adds Object* e at index i
+    virtual void add(size_t i, Object* e);
 
-    // Adds Object e at index i, pushes all objects to the right to make space for Object
-    // i.e. if o is at a[1] and you call add(1, e), then the object at a[1] will be
-    // moved to a[2]
-    void add(size_t i, Object* e);
-
-    // Adds Object e at the end of this array
-    void push_back(Object* e);
+    // Adds Object* e at the end of this array. This is the only way to increase the size of this array
+    virtual void push_back(Object* e);
 
     //Adds all the objects inside arr at the index given. If index > size()
     // Then just adds at the end of this array.
-    bool addAll(size_t index, Array* arr);
+    virtual bool addAll(size_t index, Array* arr);
 
     // Returns the index of Object o, if o is not in the array then return size()
-    size_t index_of(Object* o);
+    virtual size_t index_of(Object* o);
 
     // Returns the size of this array.
-    size_t size();
+    virtual size_t size();
 
     // Returns a pointer to the Object* at index
-    Object* get(size_t index);
+    virtual Object* get(size_t index);
 
-    // Removes the object at the index and shifts all objects with > index to the left.
-    // i.e. object at a[2] will now be at a[1]
-    Object* remove(size_t index);
+    // Removes the object at the index
+    virtual Object* remove(size_t index);
     
     // This method deletes all the objects in this array and leaves it empty.
-    void clear();
+    virtual void clear();
+
+    // Prints a complete representation of this object.
+    virtual void print();
+
+    // This method returns the hash value that uniquely represents 
+    // this Array
+    virtual size_t hash();
 };
 
+
+class StrArray : public Array {
+
+public:
+    size_t size_;
+    size_t capacity_;
+    size_t hash_;
+
+    //Constructor to create an Array with a specific size.
+    StrArray(size_t size);
+
+    // Creates an StrArray object with size=0 and default hash (0)
+    StrArray(); 
+
+    // Destructor
+    virtual ~StrArray();
+
+    // Checks for equality, will cast to an StrArray.
+    bool equals(Object* other);
+
+    // Copies each object inside this StrArray into a new StrArray object in
+    // the same order, where each object will be cloned and will have the
+    // same hash values.
+    Object* clone();
+
+    // Adds Object* e at index i. Will cast object to string.
+    virtual void add(size_t i, Object* e);
+
+    // Adds Object* e at the end of this StrArray. This is the only way to increase the size of this StrArray.
+    // Will cast to String* first
+    virtual void push_back(Object* e);
+
+    //Adds all the objects inside arr at the index given. If index > size()
+    // Then just adds at the end of this StrArray.
+    virtual bool addAll(size_t index, StrArray* arr);
+
+    // Returns the index of Object o, if o is not in the StrArray or Object not a string
+    // then return size()
+    virtual size_t index_of(Object* o);
+
+    // Returns the size of this StrArray.
+    virtual size_t size();
+
+    // Returns a pointer to the Object* at index.
+    virtual Object* get(size_t index);
+
+    // Removes the object at the index
+    virtual Object* remove(size_t index);
+    
+    // This method deletes all the objects in this StrArray and leaves it empty.
+    virtual void clear();
+
+    // Prints a complete representation of this object.
+    virtual void print();
+
+    // This method returns the hash value that uniquely represents 
+    // this StrArray
+    virtual size_t hash();
+};

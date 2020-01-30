@@ -15,36 +15,38 @@ public:
 
     // This method returns the hash value that uniquely represents 
     // this Object
-    size_t hash();
+    virtual size_t hash();
 
-    // creates another identical object with a different hash
+    // creates another identical object
     virtual Object* clone();
 
-    // returns a char* (string) representation of this object.
-    virtual char* to_string();
+    // Prints a complete representation of this object.
+    virtual void print();
 };
 
 
 class String: public Object {
     public:
         String() {
-
         }
-
         String(char* val) {}
 
         String(const char* val) {}
 
-
         ~String() {}
 
-        virtual bool equals(Object* other);
+        //virtual override
+        bool equals(Object* other);
 
         String* concat(String* s);
-
-        virtual Object* clone();
 
         int compare_to(Object* other);
 
         bool contains(String* s);
+
+        //virtual override
+        Object* clone();
+
+        //virtual override
+        void print();
 };
