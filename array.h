@@ -1,4 +1,5 @@
 #pragma once
+//Lang:: CwC
 #include <stdio.h>
 #include "object.h"
 
@@ -20,7 +21,7 @@ public:
     virtual ~Array();
 
     // Checks for equality, will cast to an Array.
-    bool equals(Object* other);
+    virtual bool equals(Object* other);
 
     // Copies each object inside this array into a new array object in
     // the same order, where each object will be cloned and will have the
@@ -41,7 +42,7 @@ public:
     virtual size_t index_of(Object* o);
 
     // Returns the size of this array.
-    virtual size_t size();
+    size_t size();
 
     // Returns a pointer to the Object* at index
     virtual Object* get(size_t index);
@@ -50,14 +51,14 @@ public:
     virtual Object* remove(size_t index);
     
     // This method deletes all the objects in this array and leaves it empty.
-    virtual void clear();
+    void clear();
 
     // Prints a complete representation of this object.
-    virtual void print();
+    void print();
 
     // This method returns the hash value that uniquely represents 
     // this Array
-    virtual size_t hash();
+    size_t hash();
 };
 
 
