@@ -89,7 +89,7 @@ public:
 
     //Adds all the objects inside arr at the index given. If index > size()
     // Then just adds at the end of this StrArray.
-    virtual bool addAll(size_t index, StrArray* arr);
+    virtual bool add_all(size_t index, StrArray* arr);
 
     // Returns the index of Object o, if o is not in the StrArray or Object not a string
     // then return size()
