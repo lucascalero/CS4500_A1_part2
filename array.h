@@ -35,7 +35,7 @@ public:
 
     //Adds all the objects inside arr at the index given. If index > size()
     // Then just adds at the end of this array.
-    virtual bool addAll(size_t index, Array* arr);
+    virtual void add_all(size_t index, Array* arr);
 
     // Returns the index of Object o, if o is not in the array then return size()
     virtual size_t index_of(Object* o);
@@ -79,11 +79,6 @@ public:
 
     // Checks for equality, will cast to an StrArray.
     bool equals(Object* other);
-
-    // Copies each object inside this StrArray into a new StrArray object in
-    // the same order, where each object will be cloned and will have the
-    // same hash values.
-    Object* clone();
 
     // Adds Object* e at index i. Will cast object to string.
     virtual void add(size_t i, Object* e);
