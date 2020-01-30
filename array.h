@@ -26,7 +26,7 @@ public:
     // Copies each object inside this array into a new array object in
     // the same order, where each object will be cloned and will have the
     // same hash values.
-    Object* clone();
+    Array* clone();
 
     // Adds Object* e at index i
     virtual void add(size_t i, Object* e);
