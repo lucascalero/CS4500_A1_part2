@@ -176,37 +176,6 @@ void test_get_returns_same_object() {
     s.OK("Get returns correct objects");
 }
 
-void test_remove_correct_object() {
-    Object* o = new Object();
-    Object* q = new Object();
-    Object* p = new Object();
-    Array* a = new Array(3);
-    a->add(0,o);
-    a->add(1,q);
-    a->add(2,p);
-
-    Object* removed = (Object*)a->remove(1);
-
-    s.t_true(removed->equals(q));
-    s.t_false(removed->equals(p));
-    s.OK("Removes the correct object at the correct index");
-}
-
-void test_remove_leaves_blank_pointer() {
-    Object* o = new Object();
-    Object* q = new Object();
-    Object* p = new Object();
-    Array* a = new Array(3);
-    a->add(0,o);
-    a->add(1,q);
-    a->add(2,p);
-
-    Object* removed = (Object*)a->remove(1);
-
-    s.t_true(a->get(1) == nullptr);
-    s.OK("pointer at index is empty");
-}
-
 void test_clear_correctly_empties_entire_array() {
     Object* o = new Object();
     Object* q = new Object();
@@ -374,37 +343,6 @@ void test_get_returns_same_String_str_array() {
     s.t_true(a->get(2)->equals(p));
 
     s.OK("Get returns correct Strings");
-}
-
-void test_remove_correct_String_str_array() {
-    String* o = new String("Example 1");
-    String* q = new String("Example 3");
-    String* p = new String("Example 2");
-    StrArray* a = new StrArray(3);
-    a->add(0,o);
-    a->add(1,q);
-    a->add(2,p);
-
-    String* removed = a->remove(1);
-
-    s.t_true(removed->equals(q));
-    s.t_false(removed->equals(p));
-    s.OK("Removes the correct String at the correct index");
-}
-
-void test_remove_leaves_blank_pointer_str_array() {
-    String* o = new String("Example 1");
-    String* q = new String("Example 3");
-    String* p = new String("Example 2");
-    StrArray* a = new StrArray(3);
-    a->add(0,o);
-    a->add(1,q);
-    a->add(2,p);
-
-    String* removed = a->remove(1);
-
-    s.t_true(a->get(1) == nullptr);
-    s.OK("pointer at index is empty");
 }
 
 void test_clear_correctly_empties_entire_StrArray() {
@@ -606,42 +544,6 @@ void test_get_returns_same_int_array() {
     s.OK("Get returns correct ints");
 }
 
-void test_remove_correct_int_array() {
-    int i1 = 1;
-    int i2 = 2;
-    int i3 = 3;
-    int* o = &i1;
-    int* p = &i2;
-    int* q = &i3;
-    IntArray* a = new IntArray(3);
-    a->add(0,o);
-    a->add(1,q);
-    a->add(2,p);
-
-    int* removed = a->remove(1);
-
-    s.t_true(removed == q);
-    s.t_false(removed == p);
-    s.OK("Removes the correct int at the correct index");
-}
-
-void test_remove_leaves_blank_pointer_int_array() {
-    int i1 = 1;
-    int i2 = 2;
-    int i3 = 3;
-    int* o = &i1;
-    int* p = &i2;
-    int* q = &i3;
-    IntArray* a = new IntArray(3);
-    a->add(0,o);
-    a->add(1,q);
-    a->add(2,p);
-
-    int* removed = a->remove(1);
-
-    s.t_true(a->get(1) == nullptr);
-    s.OK("pointer at index is empty");
-}
 
 void test_clear_correctly_empties_entire_IntArray() {
     int i1 = 1;
@@ -845,42 +747,6 @@ void test_get_returns_same_float_array() {
     s.OK("Get returns correct floats");
 }
 
-void test_remove_correct_float_array() {
-    float i1 = 1.1;
-    float i2 = 2.2;
-    float i3 = 3.3;
-    float* o = &i1;
-    float* p = &i2;
-    float* q = &i3;
-    FloatArray* a = new FloatArray(3);
-    a->add(0,o);
-    a->add(1,q);
-    a->add(2,p);
-
-    float* removed = a->remove(1);
-
-    s.t_true(removed == q);
-    s.t_false(removed == p);
-    s.OK("Removes the correct float at the correct index");
-}
-
-void test_remove_leaves_blank_pointer_float_array() {
-    float i1 = 1.1;
-    float i2 = 2.2;
-    float i3 = 3.3;
-    float* o = &i1;
-    float* p = &i2;
-    float* q = &i3;
-    FloatArray* a = new FloatArray(3);
-    a->add(0,o);
-    a->add(1,q);
-    a->add(2,p);
-
-    float* removed = a->remove(1);
-
-    s.t_true(a->get(1) == nullptr);
-    s.OK("pofloater at index is empty");
-}
 
 void test_clear_correctly_empties_entire_FloatArray() {
     float i1 = 1.1;
@@ -1083,42 +949,7 @@ void test_get_returns_same_bool_array() {
     s.OK("Get returns correct bools");
 }
 
-void test_remove_correct_bool_array() {
-    bool i1 = true;
-    bool i2 = false;
-    bool i3 = true;
-    bool* o = &i1;
-    bool* p = &i2;
-    bool* q = &i3;
-    BoolArray* a = new BoolArray(3);
-    a->add(0,o);
-    a->add(1,q);
-    a->add(2,p);
 
-    bool* removed = a->remove(1);
-
-    s.t_true(removed == q);
-    s.t_false(removed == p);
-    s.OK("Removes the correct bool at the correct index");
-}
-
-void test_remove_leaves_blank_pointer_bool_array() {
-    bool i1 = true;
-    bool i2 = false;
-    bool i3 = true;
-    bool* o = &i1;
-    bool* p = &i2;
-    bool* q = &i3;
-    BoolArray* a = new BoolArray(3);
-    a->add(0,o);
-    a->add(1,q);
-    a->add(2,p);
-
-    bool* removed = a->remove(1);
-
-    s.t_true(a->get(1) == nullptr);
-    s.OK("pobooler at index is empty");
-}
 
 void test_clear_correctly_empties_entire_BoolArray() {
     bool i1 = true;
@@ -1155,8 +986,8 @@ void test_array() {
     test_size_empty();
     test_size_not_empty();
     test_get_returns_same_object();
-    test_remove_correct_object();
-    test_remove_leaves_blank_pointer();
+
+
     test_clear_correctly_empties_entire_array();
 }
 
@@ -1174,8 +1005,8 @@ void test_str_array() {
     test_size_empty_str_array();
     test_size_not_empty_str_array();
     test_get_returns_same_String_str_array();
-    test_remove_correct_String_str_array();
-    test_remove_leaves_blank_pointer_str_array();
+
+
     test_clear_correctly_empties_entire_StrArray();
 }
 
@@ -1192,8 +1023,8 @@ void test_int_array() {
     test_size_empty_int_array();
     test_size_not_empty_int_array();
     test_get_returns_same_int_array();
-    test_remove_correct_int_array();
-    test_remove_leaves_blank_pointer_int_array();
+
+
     test_clear_correctly_empties_entire_IntArray();
 }
 
@@ -1210,8 +1041,8 @@ void test_bool_array() {
     test_size_empty_bool_array();
     test_size_not_empty_bool_array();
     test_get_returns_same_bool_array();
-    test_remove_correct_bool_array();
-    test_remove_leaves_blank_pointer_bool_array();
+
+
     test_clear_correctly_empties_entire_BoolArray();
 }
 
@@ -1228,8 +1059,8 @@ void test_float_array() {
     test_size_empty_float_array();
     test_size_not_empty_float_array();
     test_get_returns_same_float_array();
-    test_remove_correct_float_array();
-    test_remove_leaves_blank_pointer_float_array();
+
+
     test_clear_correctly_empties_entire_FloatArray();
 }
 

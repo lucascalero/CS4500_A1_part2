@@ -42,10 +42,7 @@ public:
 
     // Returns a pointer to the void* at index 
     virtual void* get(size_t index);
-
-    // Removes the void at the index
-    virtual void* remove(size_t index);
-    
+   
     // This method deletes all the voids in this array and leaves it empty.
     void clear();
 
@@ -71,9 +68,6 @@ public:
     // same hash values.
     virtual StrArray* clone();
 
-    //Removes the string at the index and returns is. 
-    String* remove(size_t index);
-
 
     String* get(size_t index);
 
@@ -96,9 +90,6 @@ public:
     // same hash values.
     virtual IntArray* clone();
 
-    //Removes the string at the index and returns is. 
-    int* remove(size_t index);
-
     int* get(size_t index);
 
 };
@@ -115,9 +106,6 @@ public:
     // the same order, where each void will be cloned and will have the
     // same hash values.
     virtual FloatArray* clone();
-
-    //Removes the string at the index and returns is. 
-    float* remove(size_t index);
 
     float* get(size_t index);
 
@@ -136,8 +124,6 @@ public:
     // same hash values.
     virtual BoolArray* clone();
 
-    //Removes the string at the index and returns is. 
-    bool* remove(size_t index);
 
     bool* get(size_t index);
 
