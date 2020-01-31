@@ -864,7 +864,7 @@ void test_remove_correct_float_array() {
     s.OK("Removes the correct float at the correct index");
 }
 
-void test_remove_leaves_blank_pofloater_float_array() {
+void test_remove_leaves_blank_pointer_float_array() {
     float i1 = 1.1;
     float i2 = 2.2;
     float i3 = 3.3;
@@ -1102,7 +1102,7 @@ void test_remove_correct_bool_array() {
     s.OK("Removes the correct bool at the correct index");
 }
 
-void test_remove_leaves_blank_pobooler_bool_array() {
+void test_remove_leaves_blank_pointer_bool_array() {
     bool i1 = true;
     bool i2 = false;
     bool i3 = true;
@@ -1141,10 +1141,104 @@ void test_clear_correctly_empties_entire_BoolArray() {
 }
 
 
+void test_array() {
+    test_empty_array_equals_empty_array();
+    test_array_equals();
+    test_arrays_are_not_equal();
+    test_array_hash();
+    test_constructor_equal_arrays();
+    test_clone_returns_same_hash();
+    test_clone_not_same_after_adding_new_item_array();
+    test_add_all_works();
+    test_index_of_object_in_array();
+    test_index_of_object_not_in_array();
+    test_size_empty();
+    test_size_not_empty();
+    test_get_returns_same_object();
+    test_remove_correct_object();
+    test_remove_leaves_blank_pointer();
+    test_clear_correctly_empties_entire_array();
+}
 
+
+void test_str_array() {
+    test_empty_StrArray_equals_empty_StrArray();
+    test_StrArray_equals();
+    test_StrArrays_are_not_equal();
+    test_constructor_equal_StrArrays();
+    test_clone_returns_same_hash_str_array();
+    test_clone_not_same_after_adding_new_item_str_array();
+    test_add_all_works_str_array();
+    test_index_of_String_in_StrArray();
+    test_index_of_String_not_in_StrArray();
+    test_size_empty_str_array();
+    test_size_not_empty_str_array();
+    test_get_returns_same_String_str_array();
+    test_remove_correct_String_str_array();
+    test_remove_leaves_blank_pointer_str_array();
+    test_clear_correctly_empties_entire_StrArray();
+}
+
+void test_int_array() {
+    test_empty_IntArray_equals_empty_IntArray();
+    test_IntArray_equals();
+    test_IntArrays_are_not_equal();
+    test_constructor_equal_IntArrays();
+    test_clone_returns_same_hash_int_array();
+    test_clone_not_same_after_adding_new_item_int_array();
+    test_add_all_works_int_array();
+    test_index_of_int_in_IntArray();
+    test_index_of_int_not_in_IntArray();
+    test_size_empty_int_array();
+    test_size_not_empty_int_array();
+    test_get_returns_same_int_array();
+    test_remove_correct_int_array();
+    test_remove_leaves_blank_pointer_int_array();
+    test_clear_correctly_empties_entire_IntArray();
+}
+
+void test_bool_array() {
+    test_empty_BoolArray_equals_empty_BoolArray();
+    test_BoolArray_equals();
+    test_BoolArrays_are_not_equal();
+    test_constructor_equal_BoolArrays();
+    test_clone_returns_same_hash_bool_array();
+    test_clone_not_same_after_adding_new_item_bool_array();
+    test_add_all_works_bool_array();
+    test_index_of_bool_in_BoolArray();
+    test_index_of_bool_not_in_BoolArray();
+    test_size_empty_bool_array();
+    test_size_not_empty_bool_array();
+    test_get_returns_same_bool_array();
+    test_remove_correct_bool_array();
+    test_remove_leaves_blank_pointer_bool_array();
+    test_clear_correctly_empties_entire_BoolArray();
+}
+
+void test_float_array() {
+    test_empty_FloatArray_equals_empty_FloatArray();
+    test_FloatArray_equals();
+    test_FloatArrays_are_not_equal();
+    test_constructor_equal_FloatArrays();
+    test_clone_returns_same_hash_float_array();
+    test_clone_not_same_after_adding_new_item_float_array();
+    test_add_all_works_float_array();
+    test_index_of_float_in_FloatArray();
+    test_index_of_float_not_in_FloatArray();
+    test_size_empty_float_array();
+    test_size_not_empty_float_array();
+    test_get_returns_same_float_array();
+    test_remove_correct_float_array();
+    test_remove_leaves_blank_pointer_float_array();
+    test_clear_correctly_empties_entire_FloatArray();
+}
 
 int main(int argc, char** argv) {
-
+    test_array();
+    test_str_array();
+    test_int_array();
+    test_bool_array();
+    test_float_array();
     
 }
 
