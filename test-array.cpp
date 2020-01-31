@@ -80,7 +80,7 @@ void test_clone_returns_same_hash() {
 }
 
 
-void test_clone_not_same_after_adding_new_item() {
+void test_clone_not_same_after_adding_new_item_array() {
     Object* o = new Object();
     Object* p = new Object();
     Array* a = new Array();
@@ -88,18 +88,6 @@ void test_clone_not_same_after_adding_new_item() {
     Array* b = a->clone();
     a->push_back(p);
 
-    s.t_false(a->equals(b));
-    s.OK("Clone has different hash than original after adding item to orig.");
-}
-
-
-void test_clone_not_same_after_adding_new_item() {
-    Object* o = new Object();
-    Object* p = new Object();
-    Array* a = new Array();
-    a->push_back(o);
-    Array* b = a->clone();
-    a->push_back(p);
     s.t_false(a->equals(b));
     s.OK("Clone has different hash than original after adding item to orig.");
 }
@@ -309,19 +297,6 @@ void test_clone_not_same_after_adding_new_item_str_array() {
     s.OK("Clone has different hash than original after adding item to orig.");
 }
 
-
-void test_clone_not_same_after_adding_new_item_str_array() {
-    String* o = new String("Example 1");
-    String* p = new String("Example 2");
-    StrArray* a = new StrArray();
-    a->push_back(o);
-    StrArray* b = a->clone();
-    a->push_back(p);
-    s.t_false(a->equals(b));
-    s.OK("Clone has different hash than original after adding item to orig.");
-}
-
-
 void test_add_all_works_str_array() {
     String* o = new String("Example 1");
     String* q = new String("Example 3");
@@ -530,20 +505,6 @@ void test_clone_not_same_after_adding_new_item_int_array() {
     IntArray* b = a->clone();
     a->push_back(p);
 
-    s.t_false(a == b);
-    s.OK("Clone has different hash than original after adding item to orig.");
-}
-
-
-void test_clone_not_same_after_adding_new_item_int_array() {
-        int i1 = 1;
-    int i2 = 2;
-    int* o = &i1;
-    int* p = &i2;
-    IntArray* a = new IntArray();
-    a->push_back(o);
-    IntArray* b = a->clone();
-    a->push_back(p);
     s.t_false(a == b);
     s.OK("Clone has different hash than original after adding item to orig.");
 }
@@ -788,20 +749,6 @@ void test_clone_not_same_after_adding_new_item_float_array() {
 }
 
 
-void test_clone_not_same_after_adding_new_item_float_array() {
-        float i1 = 1.1;
-    float i2 = 2.2;
-    float* o = &i1;
-    float* p = &i2;
-    FloatArray* a = new FloatArray();
-    a->push_back(o);
-    FloatArray* b = a->clone();
-    a->push_back(p);
-    s.t_false(a == b);
-    s.OK("Clone has different hash than original after adding item to orig.");
-}
-
-
 void test_add_all_works_float_array() {
     float i1 = 1.1;
     float i2 = 2.2;
@@ -1039,21 +986,6 @@ void test_clone_not_same_after_adding_new_item_bool_array() {
     s.t_false(a == b);
     s.OK("Clone has different hash than original after adding item to orig.");
 }
-
-
-void test_clone_not_same_after_adding_new_item_bool_array() {
-        bool i1 = true;
-    bool i2 = false;
-    bool* o = &i1;
-    bool* p = &i2;
-    BoolArray* a = new BoolArray();
-    a->push_back(o);
-    BoolArray* b = a->clone();
-    a->push_back(p);
-    s.t_false(a == b);
-    s.OK("Clone has different hash than original after adding item to orig.");
-}
-
 
 void test_add_all_works_bool_array() {
     bool i1 = true;
