@@ -369,7 +369,7 @@ void test_clear_correctly_empties_entire_StrArray() {
 void test_empty_IntArray_equals_empty_IntArray() {
     IntArray* a = new IntArray();
     IntArray* b = new IntArray();
-    s.t_true(a == b);
+    s.t_true(a->equals(b));
     s.OK("two empty IntArrays are equal");
 }
 
@@ -572,7 +572,7 @@ void test_clear_correctly_empties_entire_IntArray() {
 void test_empty_FloatArray_equals_empty_FloatArray() {
     FloatArray* a = new FloatArray();
     FloatArray* b = new FloatArray();
-    s.t_true(a == b);
+    s.t_true(a->equals(b));
     s.OK("two empty FloatArrays are equal");
 }
 
@@ -775,7 +775,7 @@ void test_clear_correctly_empties_entire_FloatArray() {
 void test_empty_BoolArray_equals_empty_BoolArray() {
     BoolArray* a = new BoolArray();
     BoolArray* b = new BoolArray();
-    s.t_true(a == b);
+    s.t_true(a->equals(b));
     s.OK("two empty BoolArrays are equal");
 }
 
