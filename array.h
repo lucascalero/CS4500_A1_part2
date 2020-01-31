@@ -7,10 +7,6 @@ class Array: public Object{
 
 public:
 
-    size_t size_;
-    size_t capacity_;
-    size_t hash_;
-
     //Constructor to create an Array with a specific size.
     Array(size_t size);
 
@@ -21,39 +17,39 @@ public:
     virtual ~Array();
 
     // Checks for equality, will cast to an Array.
-    virtual bool equals(Object* other);
+    virtual bool equals(void* other);
 
-    // Copies each object inside this array into a new array object in
-    // the same order, where each object will be cloned and will have the
+    // Copies each pointer inside this array into a new array pointers in
+    // the same order, where each pointer will be cloned and will have the
     // same hash values.
-    Array* clone();
+    virtual Array* clone();
 
-    // Adds Object* e at index i
-    virtual void add(size_t i, Object* e);
+    // Adds void* e at index i
+    void add(size_t i, void* e);
 
-    // Adds Object* e at the end of this array. This is the only way to increase the size of this array
-    virtual void push_back(Object* e);
+    // Adds void* e at the end of this array. This is the only way to increase the size of this array
+    void push_back(void* e);
 
-    //Adds all the objects inside arr at the index given. If index > size()
-    // Then just adds at the end of this array.
-    virtual void add_all(size_t index, Array* arr);
+    //Adds all the voids inside arr at the index given. If index > size()
+    // Then just adds at the end of this array. Must check for type before adding.
+    void add_all(size_t index, Array* arr); 
 
-    // Returns the index of Object o, if o is not in the array then return size()
-    virtual size_t index_of(Object* o);
+    // Returns the index of void o, if o is not in the array then return size()
+    size_t index_of(void* o);
 
     // Returns the size of this array.
     size_t size();
 
-    // Returns a pointer to the Object* at index
-    virtual Object* get(size_t index);
+    // Returns a pointer to the void* at index 
+    virtual void* get(size_t index);
 
-    // Removes the object at the index
-    virtual Object* remove(size_t index);
+    // Removes the void at the index
+    virtual void* remove(size_t index);
     
-    // This method deletes all the objects in this array and leaves it empty.
+    // This method deletes all the voids in this array and leaves it empty.
     void clear();
 
-    // Prints a complete representation of this object.
+    // Prints a complete representation of this void.
     void print();
 
     // This method returns the hash value that uniquely represents 
@@ -65,53 +61,82 @@ public:
 class StrArray : public Array {
 
 public:
-    size_t size_;
-    size_t capacity_;
-    size_t hash_;
 
-    //Constructor to create an Array with a specific size.
     StrArray(size_t size);
 
-    // Creates an StrArray object with size=0 and default hash (0)
-    StrArray(); 
+    StrArray();
 
-    // Destructor
-    virtual ~StrArray();
+    // Copies each void inside this array into a new array void in
+    // the same order, where each void will be cloned and will have the
+    // same hash values.
+    virtual StrArray* clone();
 
-    // Checks for equality, will cast to an StrArray.
-    bool equals(Object* other);
+    //Removes the string at the index and returns is. 
+    String* remove(size_t index);
 
-    // Adds Object* e at index i. Will cast object to string.
-    virtual void add(size_t i, Object* e);
 
-    // Adds Object* e at the end of this StrArray. This is the only way to increase the size of this StrArray.
-    // Will cast to String* first
-    virtual void push_back(Object* e);
+    String* get(size_t index);
 
-    //Adds all the objects inside arr at the index given. If index > size()
-    // Then just adds at the end of this StrArray.
-    virtual bool add_all(size_t index, StrArray* arr);
 
-    // Returns the index of Object o, if o is not in the StrArray or Object not a string
-    // then return size()
-    virtual size_t index_of(Object* o);
+};
 
-    // Returns the size of this StrArray.
-    virtual size_t size();
 
-    // Returns a pointer to the Object* at index.
-    virtual Object* get(size_t index);
+class IntArray : public Array {
 
-    // Removes the object at the index
-    virtual Object* remove(size_t index);
-    
-    // This method deletes all the objects in this StrArray and leaves it empty.
-    virtual void clear();
+public:
 
-    // Prints a complete representation of this object.
-    virtual void print();
+    IntArray(size_t size);
 
-    // This method returns the hash value that uniquely represents 
-    // this StrArray
-    virtual size_t hash();
+    IntArray();
+
+    // Copies each void inside this array into a new array void in
+    // the same order, where each void will be cloned and will have the
+    // same hash values.
+    virtual IntArray* clone();
+
+    //Removes the string at the index and returns is. 
+    int* remove(size_t index);
+
+    int* get(size_t index);
+
+};
+
+class FloatArray : public Array {
+
+public:
+
+    FloatArray(size_t size);
+
+    FloatArray();
+
+    // Copies each void inside this array into a new array void in
+    // the same order, where each void will be cloned and will have the
+    // same hash values.
+    virtual FloatArray* clone();
+
+    //Removes the string at the index and returns is. 
+    float* remove(size_t index);
+
+    float* get(size_t index);
+
+};
+
+class BoolArray : public Array {
+
+public:
+
+    BoolArray(size_t size);
+
+    BoolArray();
+
+    // Copies each void inside this array into a new array void in
+    // the same order, where each void will be cloned and will have the
+    // same hash values.
+    virtual BoolArray* clone();
+
+    //Removes the string at the index and returns is. 
+    bool* remove(size_t index);
+
+    bool* get(size_t index);
+
 };

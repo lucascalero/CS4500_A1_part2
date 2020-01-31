@@ -1,7 +1,8 @@
 #pragma once                                                                     
 //lang::Cpp                                                                                                                                                       
 #include <cstdlib>                                                               
-#include <iostream>                                                                                                                                               
+#include <iostream>      
+#include <string.h>                                                                                                                                         
 /** Helper class providing some C++ functionality and convenience                
  *  functions. This class has no data, constructors, destructors or              
  *  virtual functions. Inheriting from it is zero cost.                          
