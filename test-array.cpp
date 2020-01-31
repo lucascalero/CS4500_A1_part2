@@ -384,7 +384,7 @@ void test_IntArray_equals() {
     a->push_back(p);
     b->push_back(o);
     b->push_back(p);
-    s.t_true(a == b);
+    s.t_true(a->equals(b));
     s.OK("two IntArrays with the same ints have same hash");
 }
 
@@ -397,7 +397,7 @@ void test_IntArrays_are_not_equal() {
     IntArray* b = new IntArray();
     a->push_back(o);
     b->push_back(p);
-    s.t_false(a == b);
+    s.t_false(a->equals(b));
     s.OK("Two different IntArrays have different hash values.");
 }
 
@@ -418,7 +418,7 @@ void test_constructor_equal_IntArrays() {
     b->push_back(q);
     b->push_back(p);
     
-    s.t_true(a == b);
+    s.t_true(a->equals(b));
     s.OK("Two IntArrays constructd with different constructors.");
 }
 
@@ -428,7 +428,7 @@ void test_clone_returns_same_hash_int_array() {
     IntArray* a = new IntArray();
     a->push_back(o);
     IntArray* b = a->clone();
-    s.t_true(a == b);
+    s.t_true(a->equals(b));
     s.OK("Clone returns new int with same hash.");
 }
 
@@ -443,7 +443,7 @@ void test_clone_not_same_after_adding_new_item_int_array() {
     IntArray* b = a->clone();
     a->push_back(p);
 
-    s.t_false(a == b);
+    s.t_false(a->equals(b));
     s.OK("Clone has different hash than original after adding item to orig.");
 }
 
@@ -462,7 +462,7 @@ void test_add_all_works_int_array() {
     a->add(2,p);
     b->add_all(0,a);
     
-    s.t_true(a == b);
+    s.t_true(a->equals(b));
     s.OK("Test add all works");
 }
 
@@ -587,7 +587,7 @@ void test_FloatArray_equals() {
     a->push_back(p);
     b->push_back(o);
     b->push_back(p);
-    s.t_true(a == b);
+    s.t_true(a->equals(b));
     s.OK("two FloatArrays with the same floats have same hash");
 }
 
@@ -600,7 +600,7 @@ void test_FloatArrays_are_not_equal() {
     FloatArray* b = new FloatArray();
     a->push_back(o);
     b->push_back(p);
-    s.t_false(a == b);
+    s.t_false(a->equals(b));
     s.OK("Two different FloatArrays have different hash values.");
 }
 
@@ -621,7 +621,7 @@ void test_constructor_equal_FloatArrays() {
     b->push_back(q);
     b->push_back(p);
     
-    s.t_true(a == b);
+    s.t_true(a->equals(b));
     s.OK("Two FloatArrays constructd with different constructors.");
 }
 
@@ -631,7 +631,7 @@ void test_clone_returns_same_hash_float_array() {
     FloatArray* a = new FloatArray();
     a->push_back(o);
     FloatArray* b = a->clone();
-    s.t_true(a == b);
+    s.t_true(a->equals(b));
     s.OK("Clone returns new float with same hash.");
 }
 
@@ -646,7 +646,7 @@ void test_clone_not_same_after_adding_new_item_float_array() {
     FloatArray* b = a->clone();
     a->push_back(p);
 
-    s.t_false(a == b);
+    s.t_false(a->equals(b));
     s.OK("Clone has different hash than original after adding item to orig.");
 }
 
@@ -665,7 +665,7 @@ void test_add_all_works_float_array() {
     a->add(2,p);
     b->add_all(0,a);
     
-    s.t_true(a == b);
+    s.t_true(a->equals(b));
     s.OK("Test add all works");
 }
 
@@ -790,7 +790,7 @@ void test_BoolArray_equals() {
     a->push_back(p);
     b->push_back(o);
     b->push_back(p);
-    s.t_true(a == b);
+    s.t_true(a->equals(b));
     s.OK("two BoolArrays with the same bools have same hash");
 }
 
@@ -803,7 +803,7 @@ void test_BoolArrays_are_not_equal() {
     BoolArray* b = new BoolArray();
     a->push_back(o);
     b->push_back(p);
-    s.t_false(a == b);
+    s.t_false(a->equals(b));
     s.OK("Two different BoolArrays have different hash values.");
 }
 
@@ -824,7 +824,7 @@ void test_constructor_equal_BoolArrays() {
     b->push_back(q);
     b->push_back(p);
     
-    s.t_true(a == b);
+    s.t_true(a->equals(b));
     s.OK("Two BoolArrays constructd with different constructors.");
 }
 
@@ -834,7 +834,7 @@ void test_clone_returns_same_hash_bool_array() {
     BoolArray* a = new BoolArray();
     a->push_back(o);
     BoolArray* b = a->clone();
-    s.t_true(a == b);
+    s.t_true(a->equals(b));
     s.OK("Clone returns new bool with same hash.");
 }
 
@@ -849,7 +849,7 @@ void test_clone_not_same_after_adding_new_item_bool_array() {
     BoolArray* b = a->clone();
     a->push_back(p);
 
-    s.t_false(a == b);
+    s.t_false(a->equals(b));
     s.OK("Clone has different hash than original after adding item to orig.");
 }
 
@@ -867,7 +867,7 @@ void test_add_all_works_bool_array() {
     a->add(2,p);
     b->add_all(0,a);
     
-    s.t_true(a == b);
+    s.t_true(a->equals(b));
     s.OK("Test add all works");
 }
 
