@@ -108,34 +108,6 @@ void test_add_all_works() {
     s.OK("Test add all works");
 }
 
-void test_index_of_object_in_array() {
-    Object* o = new Object();
-    Object* q = new Object();
-    Object* p = new Object();
-    Array* a = new Array(3);
-    a->add(0,o);
-    a->add(1,q);
-    a->add(2,p);
-    s.t_true(a->index_of(o) == 0);
-    s.t_true(a->index_of(q) == 1);
-    s.t_true(a->index_of(p) == 2);
-    s.OK("index_of when objects exist in array");
-}
-
-
-void test_index_of_object_not_in_array() {
-    Object* o = new Object();
-    Object* q = new Object();
-    Object* p = new Object();
-    Object* n = new Object();
-    Array* a = new Array(3);
-    a->add(0,o);
-    a->add(1,q);
-    a->add(2,p);
-    s.t_true(a->index_of(n) == 3);
-    s.OK("index_of when objects dont exist in array");
-}
-
 void test_size_empty() {
     Array* a = new Array();
     s.t_true(a->size() == 0);
@@ -279,34 +251,6 @@ void test_add_all_works_str_array() {
     
     s.t_true(a->equals(b));
     s.OK("Test add all works");
-}
-
-void test_index_of_String_in_StrArray() {
-    String* o = new String("Example 1");
-    String* q = new String("Example 3");
-    String* p = new String("Example 2");
-    StrArray* a = new StrArray(3);
-    a->add(0,o);
-    a->add(1,q);
-    a->add(2,p);
-    s.t_true(a->index_of(o) == 0);
-    s.t_true(a->index_of(q) == 1);
-    s.t_true(a->index_of(p) == 2);
-    s.OK("index_of when Strings exist in StrArray");
-}
-
-
-void test_index_of_String_not_in_StrArray() {
-    String* o = new String("Example 1");
-    String* q = new String("Example 3");
-    String* p = new String("Example 2");
-    String* n = new String("Example 4");
-    StrArray* a = new StrArray(3);
-    a->add(0,o);
-    a->add(1,q);
-    a->add(2,p);
-    s.t_true(a->index_of(n) == 3);
-    s.OK("index_of when Strings dont exist in StrArray");
 }
 
 void test_size_empty_str_array() {
@@ -464,42 +408,6 @@ void test_add_all_works_int_array() {
     
     s.t_true(a->equals(b));
     s.OK("Test add all works");
-}
-
-void test_index_of_int_in_IntArray() {
-    int i1 = 1;
-    int i2 = 2;
-    int i3 = 3;
-    int* o = &i1;
-    int* p = &i2;
-    int* q = &i3;
-    IntArray* a = new IntArray(3);
-    a->add(0,o);
-    a->add(1,q);
-    a->add(2,p);
-    s.t_true(a->index_of(o) == 0);
-    s.t_true(a->index_of(q) == 1);
-    s.t_true(a->index_of(p) == 2);
-    s.OK("index_of when ints exist in IntArray");
-}
-
-
-void test_index_of_int_not_in_IntArray() {
-    int i1 = 1;
-    int i2 = 2;
-    int i3 = 3;
-    int i4 = 4;
-    int* o = &i1;
-    int* p = &i2;
-    int* q = &i3;
-    int* n = &i4;
-
-    IntArray* a = new IntArray(3);
-    a->add(0,o);
-    a->add(1,q);
-    a->add(2,p);
-    s.t_true(a->index_of(n) == 3);
-    s.OK("index_of when ints dont exist in IntArray");
 }
 
 void test_size_empty_int_array() {
@@ -669,41 +577,6 @@ void test_add_all_works_float_array() {
     s.OK("Test add all works");
 }
 
-void test_index_of_float_in_FloatArray() {
-    float i1 = 1.1;
-    float i2 = 2.2;
-    float i3 = 3.3;
-    float* o = &i1;
-    float* p = &i2;
-    float* q = &i3;
-    FloatArray* a = new FloatArray(3);
-    a->add(0,o);
-    a->add(1,q);
-    a->add(2,p);
-    s.t_true(a->index_of(o) == 0);
-    s.t_true(a->index_of(q) == 1);
-    s.t_true(a->index_of(p) == 2);
-    s.OK("index_of when floats exist in FloatArray");
-}
-
-
-void test_index_of_float_not_in_FloatArray() {
-    float i1 = 1.1;
-    float i2 = 2.2;
-    float i3 = 3.3;
-    float i4 = 4;
-    float* o = &i1;
-    float* p = &i2;
-    float* q = &i3;
-    float* n = &i4;
-
-    FloatArray* a = new FloatArray(3);
-    a->add(0,o);
-    a->add(1,q);
-    a->add(2,p);
-    s.t_true(a->index_of(n) == 3);
-    s.OK("index_of when floats dont exist in FloatArray");
-}
 
 void test_size_empty_float_array() {
     FloatArray* a = new FloatArray();
@@ -871,42 +744,6 @@ void test_add_all_works_bool_array() {
     s.OK("Test add all works");
 }
 
-void test_index_of_bool_in_BoolArray() {
-    bool i1 = true;
-    bool i2 = false;
-    bool i3 = true;
-    bool* o = &i1;
-    bool* p = &i2;
-    bool* q = &i3;
-    BoolArray* a = new BoolArray(3);
-    a->add(0,o);
-    a->add(1,q);
-    a->add(2,p);
-    s.t_true(a->index_of(o) == 0);
-    s.t_true(a->index_of(q) == 1);
-    s.t_true(a->index_of(p) == 2);
-    s.OK("index_of when bools exist in BoolArray");
-}
-
-
-void test_index_of_bool_not_in_BoolArray() {
-    bool i1 = true;
-    bool i2 = false;
-    bool i3 = true;
-    bool i4 = false;
-    bool* o = &i1;
-    bool* p = &i2;
-    bool* q = &i3;
-    bool* n = &i4;
-
-    BoolArray* a = new BoolArray(3);
-    a->add(0,o);
-    a->add(1,q);
-    a->add(2,p);
-    s.t_true(a->index_of(n) == 3);
-    s.OK("index_of when bools dont exist in BoolArray");
-}
-
 void test_size_empty_bool_array() {
     BoolArray* a = new BoolArray();
     s.t_true(a->size() == 0);
@@ -981,8 +818,6 @@ void test_array() {
     test_clone_returns_same_hash();
     test_clone_not_same_after_adding_new_item_array();
     test_add_all_works();
-    test_index_of_object_in_array();
-    test_index_of_object_not_in_array();
     test_size_empty();
     test_size_not_empty();
     test_get_returns_same_object();
@@ -1000,8 +835,6 @@ void test_str_array() {
     test_clone_returns_same_hash_str_array();
     test_clone_not_same_after_adding_new_item_str_array();
     test_add_all_works_str_array();
-    test_index_of_String_in_StrArray();
-    test_index_of_String_not_in_StrArray();
     test_size_empty_str_array();
     test_size_not_empty_str_array();
     test_get_returns_same_String_str_array();
@@ -1018,8 +851,6 @@ void test_int_array() {
     test_clone_returns_same_hash_int_array();
     test_clone_not_same_after_adding_new_item_int_array();
     test_add_all_works_int_array();
-    test_index_of_int_in_IntArray();
-    test_index_of_int_not_in_IntArray();
     test_size_empty_int_array();
     test_size_not_empty_int_array();
     test_get_returns_same_int_array();
@@ -1036,8 +867,6 @@ void test_bool_array() {
     test_clone_returns_same_hash_bool_array();
     test_clone_not_same_after_adding_new_item_bool_array();
     test_add_all_works_bool_array();
-    test_index_of_bool_in_BoolArray();
-    test_index_of_bool_not_in_BoolArray();
     test_size_empty_bool_array();
     test_size_not_empty_bool_array();
     test_get_returns_same_bool_array();
@@ -1054,8 +883,6 @@ void test_float_array() {
     test_clone_returns_same_hash_float_array();
     test_clone_not_same_after_adding_new_item_float_array();
     test_add_all_works_float_array();
-    test_index_of_float_in_FloatArray();
-    test_index_of_float_not_in_FloatArray();
     test_size_empty_float_array();
     test_size_not_empty_float_array();
     test_get_returns_same_float_array();
