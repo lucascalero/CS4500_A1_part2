@@ -16,7 +16,7 @@ public:
     // Destructor
     virtual ~Array();
 
-    // Checks for equality, will cast to an Array.
+    // Checks for equality between this Array and another.
     virtual bool equals(Object* other);
 
     // Copies each pointer inside this array into a new array pointers in
@@ -78,7 +78,7 @@ public:
     String* get(size_t index);
 
 
-    
+
 
 };
 
