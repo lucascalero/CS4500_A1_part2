@@ -17,7 +17,7 @@ public:
     virtual ~Array();
 
     // Checks for equality, will cast to an Array.
-    virtual bool equals(void* other);
+    virtual bool equals(Object* other);
 
     // Copies each pointer inside this array into a new array pointers in
     // the same order, where each pointer will be cloned and will have the
@@ -77,6 +77,8 @@ public:
 
     String* get(size_t index);
 
+
+    
 
 };
 
